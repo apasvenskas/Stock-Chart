@@ -2,6 +2,7 @@ import React from "react";
 import Card from "./card";
 import { mockCompanyDetails } from "../const/mock";
 import Header from "./header";
+import Info from "./info";
 
 const Dashboard = () => {
     return <div className="
@@ -27,7 +28,7 @@ const Dashboard = () => {
             <Card>Overview</Card>
         </div>
         <div className="row-span-2 xl:row-span-3">
-            <Card>Details</Card>
+            <Info details={mockCompanyDetails} />
         </div>
     </div>
 }
