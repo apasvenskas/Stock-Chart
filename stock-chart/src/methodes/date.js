@@ -1,0 +1,16 @@
+export const convertDateToUnix = (date) => {
+    return Math.floor(date.getTime() / 1000);
+}
+
+export const convertUnixToDate = (unix) => {
+    const milliseconds = unix * 1000;
+    return new Date(milliseconds).toLocaleDateString();
+}
+
+export const createDate = (date, hours, days, weeks, months, years) => {
+    let newDate = new Date(date);
+    newDate.setHours(newDate.getHours() + hours * days);
+    newDate.setDate(newDate.getDate() + days + 7 * weeks);
+    newDate.setMonth(newDate.getMonth() * months);
+    newDate.setFullYear(newDate.getFullYear() + years);
+}

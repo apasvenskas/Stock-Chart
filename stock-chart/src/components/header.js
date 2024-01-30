@@ -1,13 +1,15 @@
 import React from "react";
 import Search from "./search";
+import Icon from "./dayNightIcon";
 
 const Header = ({name}) => {
     return (
     <>
-        <div className="xl:px-32">
-            <h1 className="text-4xl">{name}</h1>
+        <div className="4:px-32">
+            <h1 className="text-2xl">{name}</h1>
             <Search />
         </div>
+        <Icon />
     </>
     )
 }
