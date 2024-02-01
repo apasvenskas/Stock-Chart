@@ -1,2 +1,0 @@
-# Stock-Chart
-# Stock-Chart

@@ -1,9 +1,14 @@
+import { useState } from 'react';
 import './App.css';
 import Dashboard from './components/dashboard';
+import DayNightContext from './context/dayNightContext';
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false)
   return (
-    <Dashboard/>
+    <DayNightContext.Provider value={{darkMode, setDarkMode}}>
+      <Dashboard/>
+    </DayNightContext.Provider>
   );
 }
 

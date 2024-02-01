@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { mockHistoricalData } from "../const/mock";
 import { convertUnixToDate } from "../methodes/date";
 import Card from "./card";
-import { LineChart, CartesianGrid, Line } from 'recharts';
 import {
   Area,
   AreaChart,
@@ -11,6 +10,8 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import { chartConfig } from "../const/config";
+import ChartFilter from "./chartFilter";
 
 function Chart() {
   const [data, setDate] = useState(mockHistoricalData);
@@ -27,21 +28,30 @@ function Chart() {
   };
   return (
     <Card>
+      <ul className="flex absolute top-2 right-2 z-40">
+        {Object.keys(chartConfig).map((item) => {
+            return (
+                <li key={item}>
+            <ChartFilter
+              text={item}
+              active={filter === item}
+              onClick={() => {
+                setFilter(item);
+              }}
+            />
+          </li>
+            )
+        })}
+      </ul>
       <ResponsiveContainer>
         <AreaChart data={formatData(data)}>
-          <LineChart width={500} height={300} data={data}>
-            <XAxis dataKey="name" />
-            <YAxis />
-            <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
-            <Line type="monotone" dataKey="uv" stroke="#8884d8" />
-            <Line type="monotone" dataKey="pv" stroke="#82ca9d" />
-          </LineChart>
           <Area
             type="monotone"
             dataKey="value"
             stroke="#708238"
             fillOpacity={1}
-            strokeWidth={0.5}
+            strokeWidth={2.5}
+            fill="url(#chartColor)"
           />
           <Tooltip />
           <XAxis dataKey={"date"} />
