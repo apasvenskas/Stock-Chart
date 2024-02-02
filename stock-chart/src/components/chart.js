@@ -1,6 +1,7 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { mockHistoricalData } from "../const/mock";
-import { convertUnixToDate } from "../methodes/date";
+import { convertUnixToDate, convertDateToUnix, createDate } from "../methodes/date";
+import { fetchHistoricalData } from "../api/stockApi";
 import Card from "./card";
 import DayNightContext from "../context/dayNightContext";
 import {
@@ -13,12 +14,21 @@ import {
 } from "recharts";
 import { chartConfig } from "../const/config";
 import ChartFilter from "./chartFilter";
+import StockContext from "../context/stockContext";
 
 function Chart() {
   const [data, setDate] = useState(mockHistoricalData);
   const [filter, setFilter] = useState("1W");
   const { darkMode } = useContext(DayNightContext)
+  const { stockSymbol } = useContext(StockContext)
 
+  useEffect(() => {
+    const getDateRange = () => {
+      const { days, weeks, months, years } = chartConfig[filter];
+      
+    };
+    const updateChartData = async () => {};
+  }, [stockSymbol, filter])
   const formatData = () => {
     //will need to convert data to object
     return data.c.map((item, index) => {
