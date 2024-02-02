@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { mockHistoricalData } from "../const/mock";
 import { convertUnixToDate } from "../methodes/date";
 import Card from "./card";
+import DayNightContext from "../context/dayNightContext";
 import {
   Area,
   AreaChart,
@@ -16,6 +17,7 @@ import ChartFilter from "./chartFilter";
 function Chart() {
   const [data, setDate] = useState(mockHistoricalData);
   const [filter, setFilter] = useState("1W");
+  const { darkMode } = useContext(DayNightContext)
 
   const formatData = () => {
     //will need to convert data to object
@@ -53,7 +55,10 @@ function Chart() {
             strokeWidth={2.5}
             fill="url(#chartColor)"
           />
-          <Tooltip />
+          <Tooltip 
+            contentStyle={darkMode ? {backgroundColor: "#111827"} : null}
+            itemStyle={darkMode ? {color: "#818cf8"} : null}
+          />
           <XAxis dataKey={"date"} />
           <YAxis domain={["dataMin", "dataMax"]} />
         </AreaChart>

@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import Card from "./card";
+import DayNightContext from "../context/dayNightContext";
 
 const Info = ({details}) => {
+    const { darkMode } = useContext(DayNightContext)
     const information = {
         name: "Name",
         country: "Country",
@@ -14,8 +16,11 @@ const Info = ({details}) => {
     const convertToBillion = (number) => {
         return(number/1000).toFixed(2)
     }
-    return <Card>
-        <ul className="w-full h-full flex flex-col justify-between divide-y-1">
+    return (
+    <Card>
+        <ul className={`w-full h-full flex flex-col justify-between divide-y-1 
+        ${darkMode ? "divide-gray-800" : null}
+        `}>
             {Object.keys(information).map((item) => {
                 return (
                     <li 
@@ -31,6 +36,7 @@ const Info = ({details}) => {
             })}
         </ul>
     </Card>
+    )
 }
 
 export default Info; 
