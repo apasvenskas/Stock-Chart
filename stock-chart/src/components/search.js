@@ -3,7 +3,7 @@ import React, { useContext, useState } from "react";
 import { BackspaceIcon, MagnifyingGlassCircleIcon } from '@heroicons/react/24/solid'
 import Results from "./Results";
 import DayNightContext from "../context/dayNightContext";
-import { SearchSymbols } from "../api/stockApi";
+import { searchSymbol } from "../api/stockApi";
 
 const Search = () => {
     const [input, setInput] = useState("");
@@ -18,7 +18,7 @@ const Search = () => {
     async function updateBestMatches(){
         try{
             if(input){
-                const searchResults = await SearchSymbols(input);
+                const searchResults = await searchSymbol(input);
                 const result = searchResults.result;
                 setBestMatches(result);
             }

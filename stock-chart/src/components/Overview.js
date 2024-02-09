@@ -10,11 +10,11 @@ function Overview({ symbol, price, change, changePercent, currency }) {
       <div className="w-full h-full flex items-center justify-around">
         <span className="w-full h-full flex items-center justify-around">
           ${price}
-          <span className="text-lg xl:text-xl 2xl:text-2xl text-neutral-400">
+          <span className="text-md md:text-md md:text-md text-neutral-400">
             {currency}
           </span>
         </span>
-        <span className={`text-lg xl:text-xl 2xl:text-2xl ${
+        <span className={`text-md xl:text-xl 2xl:text-2xl ${
             change > 0 ? "text-lime-500" : "text-red-500"
             }`}>
             {change} <span>({changePercent}%)</span>

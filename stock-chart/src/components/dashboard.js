@@ -55,10 +55,10 @@ const Dashboard = () => {
         `
     }
     >
-        <div className="col-span-1 md:col-span-2 lrg:col-span-3 row-span-1">
+        <div className="col-span-2 md:col-span-4 lrg:col-span-3 row-span-1">
             <Header name={stockDetails.name}/>
         </div>
-        <div className="md:col-span-1 row-span-4">
+        <div className="md:col-span-3 row-span-3">
             <Chart />
         </div>
         <div className="col-span-1">

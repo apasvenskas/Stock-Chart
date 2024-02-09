@@ -7,10 +7,10 @@ export const convertUnixToDate = (unix) => {
     return new Date(milliseconds).toLocaleDateString();
 }
 
-export const createDate = (date, hours, days, weeks, months, years) => {
+export const createDate = (date, days, weeks, months, years) => {
     let newDate = new Date(date);
-    newDate.setHours(newDate.getHours() + hours * days);
     newDate.setDate(newDate.getDate() + days + 7 * weeks);
-    newDate.setMonth(newDate.getMonth() * months);
+    newDate.setMonth(newDate.getMonth() + months);
     newDate.setFullYear(newDate.getFullYear() + years);
-}
+    return newDate;
+  };

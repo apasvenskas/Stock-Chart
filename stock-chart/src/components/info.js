@@ -18,7 +18,7 @@ const Info = ({details}) => {
     }
     return (
     <Card>
-        <ul className={`w-full h-full flex flex-col justify-between divide-y-1 
+        <ul className={`w-full h-full flex flex-col justify-between divide-y-2 text-md
         ${darkMode ? "divide-gray-800" : null}
         `}>
             {Object.keys(information).map((item) => {

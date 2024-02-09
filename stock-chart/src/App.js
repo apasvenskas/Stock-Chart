@@ -6,7 +6,7 @@ import StockContext from './context/stockContext';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false)
-  const [stockSymbol, setStockSymbol] = useState("FB")
+  const [stockSymbol, setStockSymbol] = useState("TSLA")
   return (
     <DayNightContext.Provider value={{darkMode, setDarkMode}}>
       <StockContext.Provider value={{ stockSymbol, setStockSymbol }}>
